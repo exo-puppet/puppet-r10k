@@ -11,7 +11,7 @@ class r10k::cron(
   cron { 'r10k full synchronization':
     ensure  => $ensure,
     user    => $user,
-    command => "${r10k::params::r10k_bin} synchronize",
+    command => "${r10k::params::r10k_bin} deploy environment --puppetfile",
     minute  => interval($frequency, 60),
     require => Class['r10k'],
   }
