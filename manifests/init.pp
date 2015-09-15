@@ -10,7 +10,7 @@ class r10k($configfile, $ensure = 'present') {
     ensure => absent,
     path => '/etc/r10k.yaml',
   }
-  file { '/etc/r10k.yaml':
+  file { 'r10k.yaml':
     ensure => present,
     path => '/etc/puppetlabs/r10k/r10k.yaml',
     owner  => root,
