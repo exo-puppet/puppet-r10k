@@ -6,8 +6,9 @@ class r10k($configfile, $ensure = 'present') {
   }
 
   # this file was deprecated with r10k version 1.5+
-  file { '/etc/r10k.yaml':
+  file { '/etc/r10k.yaml-old-file':
     ensure => absent,
+    path => '/etc/r10k.yaml',
   }
   file { '/etc/r10k.yaml':
     ensure => present,
