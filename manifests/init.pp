@@ -1,9 +1,10 @@
 class r10k($configfile, $ensure = 'present') {
 
-  package { 'r10k':
-    ensure   => $ensure,
-    provider => gem,
-  }
+  ensure_packages ( 'r10k' , {
+    'ensure'   => $ensure,
+    'provider' => 'gem',
+    'require' => [Class['apt::update'],Package['rubygems','ruby1.9.3']]
+  } )
 
   # this file was deprecated with r10k version 1.5+
   file { '/etc/r10k.yaml-old-file':
